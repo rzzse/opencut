@@ -1,0 +1,33 @@
+# OpenCut — Dependencies & Runtime
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment & Secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Temp files
+*.log
+*.tmp
+*.bak
+
+# Node (CEP uses embedded Chromium, no node_modules needed)
+node_modules/
+
+# Build artifacts
+*.zip
+*.zxp

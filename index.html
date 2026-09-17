@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OpenCut - Premiere Pro</title>
+    <link rel="stylesheet" href="css/style.css?v=consolas1">
+</head>
+<body>
+    <!-- Top Header Bar (AutoCut Style) -->
+    <header class="app-header">
+        <div class="header-left">
+            <button id="btnBackToHub" class="header-btn btn-back hidden">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Back to Hub</span>
+            </button>
+            <div id="brandLogo" class="app-brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-5h2zm0-7h-2V7h2z"/></svg>
+                </div>
+                <div class="brand-title">opencut <span class="brand-version">v1.0.0</span></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button id="btnPinWindow" class="icon-btn" title="Stay on top">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="17" x2="12" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         VIEW 1: AUTOCUT DASHBOARD HUB
+         ============================================================ -->
+    <main id="viewHub" class="app-view active">
+        <!-- Top Hero Grid: 2 Main Tools -->
+        <div class="hub-hero-grid">
+            <!-- Card 1: Character Heads -->
+            <div id="cardLaunchHeads" class="hub-card hero-heads">
+                <span class="card-badge badge-active">Active</span>
+                <div class="card-title">Character Heads</div>
+                <div class="card-desc">Sync speaker reaction heads, switch expressions & razor cut dead air on timeline.</div>
+            </div>
+
+            <!-- Card 2: Auto Sound Effects -->
+            <div id="cardLaunchSFX" class="hub-card hero-sfx">
+                <span class="card-badge badge-new">New</span>
+                <div class="card-title">Auto Sound Effects</div>
+                <div class="card-desc">AI punchline predictor, in-panel waveform trimmer & audio leveling for timeline SFX.</div>
+            </div>
+        </div>
+
+        <!-- Secondary Feature Grid -->
+        <div class="hub-features-grid">
+            <div class="hub-mini-card" id="cardMiniSilences">
+                <span class="mini-badge badge-active">Fast</span>
+                <div class="mini-preview">
+                    <svg width="100%" height="100%" viewBox="0 0 100 40">
+                        <rect x="10" y="10" width="30" height="20" rx="2" fill="rgba(16,185,129,0.3)" stroke="#10b981"/>
+                        <rect x="60" y="10" width="30" height="20" rx="2" fill="rgba(16,185,129,0.3)" stroke="#10b981"/>
+                        <line x1="50" y1="5" x2="50" y2="35" stroke="#ef4444" stroke-dasharray="2,2"/>
+                    </svg>
+                </div>
+                <div class="mini-title">AutoCut Silences</div>
+            </div>
+
+            <div class="hub-mini-card" id="cardMiniZoom">
+                <span class="mini-badge badge-new">AI</span>
+                <div class="mini-preview">
+                    <svg width="100%" height="100%" viewBox="0 0 100 40">
+                        <rect x="35" y="14" width="4" height="12" rx="2" fill="#8fbc8f"/>
+                        <rect x="43" y="6" width="4" height="28" rx="2" fill="#8fbc8f"/>
+                        <rect x="51" y="10" width="4" height="20" rx="2" fill="#8fbc8f"/>
+                        <rect x="59" y="16" width="4" height="8" rx="2" fill="#8fbc8f"/>
+                    </svg>
+                </div>
+                <div class="mini-title">Auto AI Voice</div>
+            </div>
+
+            <div class="hub-mini-card" id="cardMiniCaptions">
+                <span class="mini-badge badge-update">Popular</span>
+                <div class="mini-preview">
+                    <svg width="100%" height="100%" viewBox="0 0 100 40">
+                        <rect x="10" y="12" width="80" height="16" rx="3" fill="#1e293b"/>
+                        <text x="50" y="24" font-size="9" text-anchor="middle" fill="#8fbc8f" font-weight="bold">POV</text>
+                    </svg>
+                </div>
+                <div class="mini-title">AutoPOV</div>
+            </div>
+
+            <div class="hub-mini-card" id="cardMiniSeparate">
+                <span class="mini-badge badge-update">AI</span>
+                <div class="mini-preview">
+                    <svg width="100%" height="100%" viewBox="0 0 100 40">
+                        <rect x="10" y="8" width="22" height="6" rx="2" fill="#8fbc8f"/>
+                        <rect x="10" y="18" width="22" height="6" rx="2" fill="#8fbc8f" opacity="0.6"/>
+                        <rect x="10" y="28" width="22" height="6" rx="2" fill="#8fbc8f" opacity="0.3"/>
+                        <line x1="42" y1="11" x2="42" y2="31" stroke="#ef4444" stroke-dasharray="2,2"/>
+                        <rect x="50" y="8" width="40" height="6" rx="2" fill="#8fbc8f"/>
+                        <rect x="50" y="18" width="40" height="6" rx="2" fill="#8fbc8f" opacity="0.6"/>
+                        <rect x="50" y="28" width="40" height="6" rx="2" fill="#8fbc8f" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="mini-title">AutoSeparate</div>
+            </div>
+        </div>
+
+        <!-- Hub Footer -->
+        <footer class="hub-footer">
+            <div class="hub-status">
+                <span class="status-dot"></span>
+                <span>Premiere Sequence Ready</span>
+            </div>
+            <div class="footer-actions">
+                <button id="btnHubSync" class="btn-small">Sync Sequence</button>
+                <button id="btnHubConsole" class="btn-small">Activity Log</button>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ============================================================
+         VIEW 2: AUTO CHARACTER HEADS WORKSPACE
+         ============================================================ -->
+    <main id="viewHeads" class="app-view">
+        <div class="view-top-bar">
+            <div class="view-heading">
+                <h2>Auto Character Heads</h2>
+                <p>Timeline-driven reaction face placement &amp; dead air razor</p>
+            </div>
+            <button class="btn-small btn-return-hub">← Back to Hub</button>
+        </div>
+
+        <!-- Characters (head packs) -->
+        <section class="section">
+            <div class="section-title"><span>heads</span></div>
+            <div class="help">create a character, then drag &amp; drop or click to import head images. tag each head with emotions so the ai picks the right face.</div>
+            <div id="headsCharacterList"></div>
+            <div class="inline-create-row">
+                <input type="text" id="txtNewCharacterName" placeholder="character name (e.g. spidey)">
+                <button id="btnCreateCharacter" class="btn-small">create character</button>
+            </div>
+
+            <!-- Character editor (hidden until a character is selected) -->
+            <div id="characterEditor" class="character-editor hidden">
+                <div class="section-title"><span id="lblEditingCharacter">editing character</span></div>
+                <div id="headDropZone" class="head-drop-zone">
+                    <div class="head-drop-text">
+                        <strong>drag &amp; drop head images here</strong>
+                        <span>or</span>
+                        <button id="btnBrowseHeadImages" class="btn-small">browse images...</button>
+                    </div>
+                    <input type="file" id="fileHeadPicker" accept=".png,.jpg,.jpeg,.webp" multiple style="display:none">
+                </div>
+                <div id="headImagesGrid" class="head-images-grid"></div>
+            </div>
+        </section>
+
+        <!-- Animation Presets -->
+        <section class="section">
+            <div class="section-title"><span>Animation Presets</span></div>
+            <div class="preset-card">
+                <div class="preset-header"><span class="preset-tag-a">Preset A: A1 track</span><span>main character pop-in</span></div>
+                <div class="path-box"><input type="text" id="txtPresetA"><button class="btn-small" id="btnBrowsePresetA">Browse</button></div>
+            </div>
+            <div class="preset-card">
+                <div class="preset-header"><span class="preset-tag-b">Preset B: other tracks</span><span>secondary characters pop</span></div>
+                <div class="path-box"><input type="text" id="txtPresetB"><button class="btn-small" id="btnBrowsePresetB">Browse</button></div>
+            </div>
+        </section>
+
+        <!-- Audio Track Routing -->
+        <section class="section">
+            <div class="section-title"><span>Audio Track Routing</span><button id="btnSyncTracks" class="btn-small">Sync Sequence</button></div>
+            <p class="help">assign one character to each audio track. tracks with no character get no heads.</p>
+            <div id="characterList"></div>
+        </section>
+
+        <!-- Run Conditions -->
+        <section class="section">
+            <div class="section-title"><span>Run Conditions</span></div>
+            <label class="checkbox-item"><input type="checkbox" id="chkAI" checked><span><strong>Local speech transcription &amp; VAD</strong><small>One Whisper pass with neural speech detection</small></span></label>
+            <label class="checkbox-item"><input type="checkbox" id="chkSilenceTrim" checked><span><strong>Razor silence on every audio track</strong><small>Cuts dead space and leaves 200ms padding before/after speech</small></span></label>
+            <label class="checkbox-item"><input type="checkbox" id="chkNoOverlap" checked disabled><span><strong>No simultaneous heads</strong><small>Always enabled to prevent overlaps</small></span></label>
+            <label class="checkbox-item"><input type="checkbox" id="chkFillGaps"><span><strong>Keep a head on screen between speakers</strong><small>Extends expression across inter-speaker pauses</small></span></label>
+            <label class="checkbox-item"><input type="checkbox" id="chkPresets" checked><span><strong>Apply A/B presets</strong><small>Track 1 uses A; all other tracks use B</small></span></label>
+            <label class="checkbox-item"><input type="checkbox" id="chkMotionPop" checked><span><strong>Motion pop-in and horizontal flip</strong><small>Native 0%, 115%, 100% scale fallback</small></span></label>
+            <div class="setting-grid">
+                <label class="setting-item">A1 video track<select id="selVideoTrack"><option value="2">V2 (A2-A4 use V3)</option><option value="3">V3 (A2-A4 use V4)</option><option value="4">V4 (A2-A4 use V5)</option></select></label>
+                <label class="setting-item">Silence threshold (dB)<input type="number" id="numSilenceThreshold" value="-50" step="1" min="-70" max="-10"></label>
+                <label class="setting-item">Minimum expression hold (seconds)<input type="number" id="numMinimumExpressionDuration" value="1" step="0.25" min="0.25" max="10"></label>
+                <label class="setting-item">Minimum retained audio (seconds)<input type="number" id="numMinDuration" value="0.05" step="0.05" min="0.05" max="0.05" disabled></label>
+                <label class="setting-item">Maximum emotion review window (seconds)<input type="number" id="numMaximumExpressionDuration" value="4" step="0.25" min="0.5" max="20"></label>
+            </div>
+        </section>
+
+        <button id="btnGenerate" class="btn-primary">Run Analysis and Place Heads</button>
+        <div class="btn-row">
+            <button id="btnSaveConfig" class="btn-secondary">Save Settings</button>
+            <button id="btnResetConfig" class="btn-secondary">Reset Defaults</button>
+        </div>
+
+        <section class="console-card"><div class="section-title"><span>Activity Log</span></div><div class="console-box" id="consoleLog">Ready.</div></section>
+    </main>
+
+    <!-- ============================================================
+         VIEW 3: AUTO SOUND EFFECTS WORKSPACE
+         ============================================================ -->
+    <main id="viewSFX" class="app-view">
+        <div class="view-top-bar">
+            <div class="view-heading">
+                <h2>Auto Sound Effects</h2>
+                <p>AI punchline detection, waveform trimmer &amp; auto-leveling</p>
+            </div>
+            <button class="btn-small btn-return-hub">← Back to Hub</button>
+        </div>
+
+        <!-- SFX Library Management -->
+        <section class="section">
+            <div class="section-title">
+                <span>Sound Effects Library</span>
+                <div class="header-actions">
+                    <button id="btnAddSfxFile" class="btn-small">+ Add File</button>
+                    <button id="btnImportSfxFolder" class="btn-small">📁 Import Folder</button>
+                    <input type="file" id="fileAudioPicker" accept=".wav,.mp3,.ogg,.flac,.m4a,.aif,.aiff,audio/*" multiple style="display:none">
+                </div>
+            </div>
+            <p class="help">Assign categories to sound effects. Click ✏️ to trim files with multiple sounds. Click ❌ to remove.</p>
+            
+            <div id="sfxLibraryContainer" class="sfx-library-list">
+                <!-- Dynamically populated list of SFX items -->
+            </div>
+        </section>
+
+        <!-- AI Punchline Pacing & Density -->
+        <section class="section">
+            <div class="section-title"><span>AI Timing &amp; Placement</span></div>
+            
+            <div class="sfx-slider-block">
+                <div class="slider-header">
+                    <strong>Population Rate</strong>
+                    <span id="lblPopulationRate">45% (~18 SFX)</span>
+                </div>
+                <input type="range" id="rngPopulationRate" min="0" max="100" value="45" class="sfx-slider">
+                <small class="help">Higher rates add sound effects to smaller jokes; lower rates save them for big punchlines.</small>
+            </div>
+
+            <div class="setting-grid" style="margin-top: 12px;">
+                <label class="setting-item">Master SFX Volume (dB)
+                    <input type="number" id="numSfxVolume" value="-12" step="1" min="-30" max="6">
+                </label>
+                <label class="setting-item">Target Audio Track
+                    <select id="selSfxTrack">
+                        <option value="5" selected>Track A5</option>
+                        <option value="6">Track A6</option>
+                        <option value="7">Track A7</option>
+                        <option value="8">Track A8</option>
+                    </select>
+                </label>
+            </div>
+
+            <label class="checkbox-item" style="margin-top: 12px;">
+                <input type="checkbox" id="chkSnapToCut" checked>
+                <span>
+                    <strong>Snap to nearest cut (within 2 seconds)</strong>
+                    <small>Aligns sound effects to visual cuts or dialogue edits for maximum impact</small>
+                </span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" id="chkFlagLoudRed" checked>
+                <span>
+                    <strong>Flag extra-loud SFX in Red in Premiere</strong>
+                    <small>Normalizes all SFX to -6 dB; colors high-impact transients Red on timeline</small>
+                </span>
+            </label>
+        </section>
+
+        <!-- Optional Local GGUF / Gemma Model Selector -->
+        <section class="section">
+            <div class="section-title"><span>AI Reasoning Model</span></div>
+            <div class="preset-card">
+                <div class="preset-header"><span>Local .GGUF Model (Optional: Gemma 2B, LLaMA)</span><span>Offline Reasoning</span></div>
+                <div class="path-box"><input type="text" id="txtGgufPath" placeholder="Leave blank to use built-in fast local timing engine..."><button class="btn-small" id="btnBrowseGguf">Browse</button></div>
+            </div>
+        </section>
+
+        <button id="btnRunSFX" class="btn-primary">Place Sound Effects on Timeline</button>
+        <div class="btn-row">
+            <button id="btnSaveSfxConfig" class="btn-secondary">Save Library</button>
+            <button id="btnResetSfxDefaults" class="btn-secondary">Restore Default Pack</button>
+        </div>
+
+        <section class="console-card"><div class="section-title"><span>SFX Activity Log</span></div><div class="console-box" id="consoleLogSFX">Ready. Configure library and click Place Sound Effects.</div></section>
+    </main>
+
+    <!-- ============================================================
+         MINI WAVEFORM TRIMMER MODAL (Overlay)
+         ============================================================ -->
+    <div id="trimmerModal" class="modal-backdrop hidden">
+        <div class="trimmer-modal-card">
+            <div class="modal-header">
+                <div>
+                    <h3 id="trimmerFileName">Trim Sound Effect</h3>
+                    <p class="help">Drag the In and Out handles to isolate the sound. A new trimmed copy will replace the file.</p>
+                </div>
+                <button id="btnCloseTrimmer" class="icon-btn" title="Close">✕</button>
+            </div>
+
+            <div class="waveform-container">
+                <canvas id="trimmerCanvas" width="560" height="120"></canvas>
+                <!-- Draggable Handles Container -->
+                <div id="trimHandlesOverlay" class="trim-handles-overlay">
+                    <div id="handleIn" class="trim-handle handle-left" title="Drag to adjust Start"></div>
+                    <div id="trimRegion" class="trim-region"></div>
+                    <div id="handleOut" class="trim-handle handle-right" title="Drag to adjust End"></div>
+                </div>
+            </div>
+
+            <div class="trimmer-controls">
+                <button id="btnAuditionTrim" class="btn-small">▶ Play Trimmed Audio</button>
+                <div class="trim-times">
+                    <span>In: <strong id="lblTrimIn">0.00s</strong></span>
+                    <span>Out: <strong id="lblTrimOut">0.00s</strong></span>
+                    <span>Duration: <strong id="lblTrimDur" style="color:var(--primary);">0.00s</strong></span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="btnCancelTrim" class="btn-secondary">Cancel</button>
+                <button id="btnSaveTrim" class="btn-primary" style="width:auto; padding:8px 16px;">Save &amp; Replace (Backup Original)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         VIEW 4: AUTO AI VOICE WORKSPACE
+         ============================================================ -->
+    <main id="viewAIVoice" class="app-view">
+        <div class="view-top-bar">
+            <div class="view-heading">
+                <h2>Auto AI Voice</h2>
+                <p>Strip silences, prep for ElevenLabs, and perfectly resync AI audio.</p>
+            </div>
+            <button class="btn-small btn-return-hub">+? Back to Hub</button>
+        </div>
+
+        <!-- One-Click AI Voice Experience -->
+        <section class="section">
+            <div class="section-title"><span>Auto AI Voice (1-Click)</span></div>
+            <p class="help">Render your voice track, strip pauses, convert to your chosen character voice via ElevenLabs, insert a new track, and snap every clip into perfect waveform sync—all in one click!</p>
+
+            <div class="control-row">
+                <label>Voice Model</label>
+                <select id="selElevenLabsVoice" class="dropdown">
+                    <option value="6u6JbqKdaQy89ENzLSju" selected>Brielle - Natural Female</option>
+                    <option value="cNYrMw9glwJZXR8RwbuR">Belle - Empathetic</option>
+                    <option value="kNie5n4lYl7TrvqBZ4iG">Cinnamon - Smart &amp; Plucky Narrator</option>
+                    <option value="pPdl9cQBQq4p6mRkZy2Z">Emma - Adorable and Upbeat</option>
+                    <option value="OYTbf65OHHFELVut7v2H">Hope - Natural, Clear and Calm</option>
+                    <option value="n7Wi4g1bhpw4Bs8HK5ph">Gigi - Cute, Peppy, Energetic</option>
+                    <option value="pjcYQlDFKMbcOUp6F5GD">Brittney - Calm and Meditative</option>
+                    <option value="kPzsL2i3teMYv0FxEYQ6">Brittney - Social Media Voice</option>
+                    <option value="XiPS9cXxAVbaIWtGDHDh">Brittney - Young, Peppy Female</option>
+                    <option value="TbMNBJ27fH2U0VgpSNko">Lori - Happy, Sweet and Compassionate</option>
+                    <option value="EXAVITQu4vr4xnSDxMaL">Sarah - Mature, Reassuring</option>
+                    <option value="FGY2WhTYpPnrIDTdsKH5">Laura - Quirky Attitude</option>
+                    <option value="cgSgspJ2msm6clMCkdW9">Jessica - Playful, Bright</option>
+                    <option value="hpp4J3VqNfWAUOO0d1Us">Bella - Professional, Warm</option>
+                    <option value="pFZP5JQG7iQjIQuC4Bku">Lily - Velvety Actress</option>
+                    <option value="CwhRBWXzGAHq8TQ4Fs17">Roger - Laid-Back, Resonant</option>
+                    <option value="IKne3meq5aSn9XLyUdCD">Charlie - Deep, Confident</option>
+                    <option value="JBFqnCBsd6RMkjVDRZzb">George - Warm Storyteller</option>
+                    <option value="N2lVS1w4EtoT3dr4eOWO">Callum - Husky Trickster</option>
+                </select>
+            </div>
+
+            <div class="control-row">
+                <label>Target Audio Track</label>
+                <select id="selAIVoiceTrack" class="dropdown">
+                    <option value="1">Audio 1</option>
+                    <option value="2" selected>Audio 2</option>
+                    <option value="3">Audio 3</option>
+                    <option value="4">Audio 4</option>
+                    <option value="5">Audio 5</option>
+                </select>
+            </div>
+
+            <div class="control-row">
+                <label>Silence Threshold (dB)</label>
+                <input type="number" id="numAIVoiceSilenceDb" value="-40" class="num-input">
+            </div>
+
+            <div class="control-row">
+                <label>ElevenLabs API Key</label>
+                <input type="password" id="txtElevenLabsApiKey" value="" class="text-input" placeholder="enter your elevenlabs api key" style="font-family: monospace; font-size: 11px;">
+            </div>
+
+            <button id="btnAIVoiceOneClick" class="btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); font-weight: bold; padding: 13px 16px; margin-top: 14px; width: 100%; font-size: 14px; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);">
+                convert voice with ai
+            </button>
+        </section>
+
+        <!-- Advanced / Manual Fallback -->
+        <details style="margin: 16px 0; font-size: 11px; color: #a1a1aa;">
+            <summary style="cursor: pointer; color: #8fbc8f; font-weight: 500;">Advanced / Manual Two-Step Mode</summary>
+            
+            <section class="section" style="margin-top: 10px;">
+                <div class="section-title"><span>Manual Step 1: Prep Track to Timeline</span></div>
+                <p class="help">Renders Track A2 and places the condensed audio at the end of the timeline so you can export manually.</p>
+                <button id="btnAIVoicePrep" class="btn-secondary" style="margin-top: 6px; width: 100%;">Prep Track to Timeline End</button>
+            </section>
+
+            <section class="section" style="margin-top: 10px;">
+                <div class="section-title"><span>Manual Step 2: Import Downloaded Audio</span></div>
+                <div id="aiVoiceDropZone" style="border: 1.5px dashed rgba(143, 188, 143, 0.5); border-radius: 8px; padding: 14px; text-align: center; background: rgba(143, 188, 143, 0.04); cursor: pointer; margin-top: 6px; margin-bottom: 6px;">
+                    <div id="aiVoiceDropText" style="color: #a1a1aa; font-size: 11px; pointer-events: none;">
+                        <div style="font-size: 12px; color: #8fbc8f; font-weight: bold; margin-bottom: 2px;">Drag &amp; drop audio file here</div>
+                        <div>or click to open file browser (.wav, .mp3, .m4a)</div>
+                    </div>
+                    <div id="aiVoiceFileSelected" style="color: #8fbc8f; font-size: 11px; font-weight: bold; margin-top: 4px; display: none; word-break: break-all;"></div>
+                    <input type="file" id="filePickerAIVoice" accept=".wav,.mp3,.m4a,.aac,.flac,.ogg,audio/*" style="display: none;">
+                </div>
+                <button id="btnAIVoiceResync" class="btn-secondary" style="width: 100%;" disabled>Import Manual Audio &amp; Resync</button>
+            </section>
+        </details>
+
+        <!-- Log Area -->
+        <section class="console-card" style="margin-top: 24px;">
+            <div class="section-title"><span>AI Voice Activity Log</span></div>
+            <div class="console-box" id="consoleLogAIVoice">Ready.</div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         VIEW 5: AUTOCUT SILENCES WORKSPACE
+         ============================================================ -->
+    <main id="viewSilences" class="app-view">
+        <div class="view-top-bar">
+            <div class="view-heading">
+                <h2>autocut silences</h2>
+            </div>
+            <button class="btn-small btn-return-hub">← back to hub</button>
+        </div>
+
+        <!-- Stepper Navigation -->
+        <div class="stepper-nav" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
+            <div id="stepPillSections" class="step-badge active" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 11px; cursor: pointer; background: #8fbc8f; color: #fff;">
+                <span id="stepIcon1" style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: rgba(0,0,0,0.25); font-size: 10px; font-weight: bold;">1</span>
+                <span>sections</span>
+            </div>
+            <div style="width: 30px; height: 1.5px; background: #27272a;"></div>
+            <div id="stepPillSettings" class="step-badge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 11px; cursor: pointer; background: #27272a; color: #a1a1aa;">
+                <span id="stepIcon2" style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: rgba(255,255,255,0.1); font-size: 10px; font-weight: bold;">2</span>
+                <span>settings</span>
+            </div>
+        </div>
+
+        <!-- ================= STEP 1: DEFINE SECTIONS ================= -->
+        <div id="silencesStep1">
+            <section class="section">
+                <div class="section-title"><span>define sections</span></div>
+                <p class="help">update the audio sections to be processed by autocut</p>
+
+                <!-- Scope Toggle -->
+                <div style="display: flex; gap: 8px; margin: 12px 0 16px;">
+                    <button id="btnSilencesScopeEntire" class="scope-btn active" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid #8fbc8f; background: rgba(143, 188, 143, 0.12); color: #f4f4f5; font-size: 12px; font-weight: bold; cursor: pointer;">entire timeline</button>
+                    <button id="btnSilencesScopeInOut" class="scope-btn" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid #27272a; background: #18181b; color: #a1a1aa; font-size: 12px; cursor: pointer;">in/out points</button>
+                </div>
+
+                <!-- Track Selection Checklist -->
+                <div style="background: #18181b; border: 1px solid #27272a; border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-size: 11px; color: #a1a1aa; font-weight: bold;">select audio tracks</span>
+                        <span id="lblSilencesDuration" style="font-size: 11px; color: #71717a; font-family: monospace;">00:00:00 - 00:00:00</span>
+                    </div>
+
+                    <div id="silencesTrackList" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="color: #71717a; font-size: 11px; text-align: center; padding: 10px;">inspecting active sequence tracks...</div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; padding-top: 10px; border-top: 1px solid #27272a; font-size: 10px; color: #71717a;">
+                        <span style="display: flex; align-items: center; gap: 4px;"><span style="display: inline-block; width: 8px; height: 8px; background: #8fbc8f; border-radius: 2px;"></span> analyzed sections</span>
+                        <span style="display: flex; align-items: center; gap: 4px;"><span style="display: inline-block; width: 8px; height: 8px; border: 1px solid #71717a; border-radius: 2px;"></span> ignored sections</span>
+                        <span style="display: flex; align-items: center; gap: 4px;"><span style="display: inline-block; width: 2px; height: 8px; background: #8fbc8f;"></span> affected cuts</span>
+                    </div>
+                </div>
+
+                <button id="btnSilencesValidate" class="btn-primary" style="background: linear-gradient(135deg, #8fbc8f, #6b9678); font-weight: bold; padding: 13px 16px; width: 100%; font-size: 13px; box-shadow: 0 4px 14px rgba(143, 188, 143, 0.35);">
+                    validate sections
+                </button>
+            </section>
+        </div>
+
+        <!-- ================= STEP 2: SETTINGS & CUTTING ================= -->
+        <div id="silencesStep2" style="display: none;">
+            <section class="section">
+                <!-- Waveform Canvas Preview -->
+                <div style="background: #111114; border: 1px solid #27272a; border-radius: 12px; padding: 12px; position: relative; overflow: hidden; margin-bottom: 16px;">
+                    <canvas id="silencesWaveformCanvas" width="500" height="90" style="width: 100%; height: 90px; display: block; border-radius: 4px;"></canvas>
+                    <div id="silencesPreviewOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: rgba(17, 17, 20, 0.82);">
+                        <button id="btnSilencesPreviewFast" class="btn-small" style="background: #27272a; border: 1px solid #3f3f46; color: #f4f4f5; padding: 6px 14px; border-radius: 6px; font-size: 11px; cursor: pointer;">generate partial preview (faster)</button>
+                        <button id="btnSilencesPreviewFull" style="background: none; border: none; color: #a1a1aa; font-size: 11px; text-decoration: underline; cursor: pointer;">generate entire preview</button>
+                    </div>
+                </div>
+
+                <!-- Noise Threshold -->
+                <div style="margin-bottom: 18px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label style="font-size: 12px; font-weight: bold;">noise threshold</label>
+                        <span id="lblSilenceThreshold" style="font-size: 12px; font-weight: bold; color: #8fbc8f; font-family: monospace;">-38db</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: #71717a; font-size: 12px;">🔈</span>
+                        <input type="range" id="rngSilenceThreshold" min="-60" max="-10" value="-38" step="1" style="flex: 1; accent-color: #8fbc8f; cursor: pointer;">
+                        <span style="color: #71717a; font-size: 12px;">🔊</span>
+                    </div>
+                    <div style="text-align: right; margin-top: 4px;">
+                        <button id="btnSilencesCalcThreshold" style="background: none; border: none; color: #8fbc8f; font-size: 11px; text-decoration: underline; cursor: pointer;">calculate by ai</button>
+                    </div>
+                </div>
+
+                <!-- Presets -->
+                <div style="margin-bottom: 18px;">
+                    <label style="font-size: 11px; color: #a1a1aa; font-weight: bold; display: block; margin-bottom: 6px;">presets</label>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <button class="preset-pill" data-preset="calm" style="padding: 5px 12px; border-radius: 6px; font-size: 11px; background: #27272a; border: 1px solid #3f3f46; color: #f4f4f5; cursor: pointer;">calm</button>
+                        <button class="preset-pill" data-preset="measured" style="padding: 5px 12px; border-radius: 6px; font-size: 11px; background: #27272a; border: 1px solid #3f3f46; color: #f4f4f5; cursor: pointer;">measured</button>
+                        <button class="preset-pill active" data-preset="paced" style="padding: 5px 12px; border-radius: 6px; font-size: 11px; background: #8fbc8f; border: 1px solid #8fbc8f; color: #fff; cursor: pointer;">paced</button>
+                        <button class="preset-pill" data-preset="energetic" style="padding: 5px 12px; border-radius: 6px; font-size: 11px; background: #27272a; border: 1px solid #3f3f46; color: #f4f4f5; cursor: pointer;">energetic</button>
+                        <button class="preset-pill" data-preset="jumpy" style="padding: 5px 12px; border-radius: 6px; font-size: 11px; background: #27272a; border: 1px solid #3f3f46; color: #f4f4f5; cursor: pointer;">jumpy</button>
+                    </div>
+                </div>
+
+                <!-- Parameters Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px;">
+                    <div>
+                        <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">remove silences longer than</label>
+                        <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                            <input type="number" id="numMinSilenceMs" value="150" min="50" max="2000" step="25" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                            <span style="font-size: 11px; color: #71717a;">ms</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">keep talks longer than</label>
+                        <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                            <input type="number" id="numMinTalkMs" value="100" min="25" max="1000" step="25" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                            <span style="font-size: 11px; color: #71717a;">ms</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">margin before by (in-pad)</label>
+                        <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                            <input type="number" id="numMarginBeforeMs" value="100" min="0" max="1000" step="25" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                            <span style="font-size: 11px; color: #71717a;">ms</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">margin after by (out-pad)</label>
+                        <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                            <input type="number" id="numMarginAfterMs" value="100" min="0" max="1000" step="25" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                            <span style="font-size: 11px; color: #71717a;">ms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Silence Management Radio Group -->
+                <div style="margin-bottom: 16px;">
+                    <label style="font-size: 11px; color: #a1a1aa; font-weight: bold; display: block; margin-bottom: 8px;">silence management</label>
+                    <div style="display: flex; flex-direction: column; gap: 6px; background: #18181b; border: 1px solid #27272a; border-radius: 8px; padding: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceMgmt" value="remove" checked style="accent-color: #8fbc8f;">
+                            <span>remove silences (ripple delete gaps)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceMgmt" value="keep" style="accent-color: #8fbc8f;">
+                            <span>keep silences (razor cuts only)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceMgmt" value="mute" style="accent-color: #8fbc8f;">
+                            <span>mute silences</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceMgmt" value="keep_spaces" style="accent-color: #8fbc8f;">
+                            <span>remove silences but keep spaces</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Transitions Radio Group -->
+                <div style="margin-bottom: 18px;">
+                    <label style="font-size: 11px; color: #a1a1aa; font-weight: bold; display: block; margin-bottom: 8px;">transitions</label>
+                    <div style="display: flex; gap: 14px; background: #18181b; border: 1px solid #27272a; border-radius: 8px; padding: 10px; flex-wrap: wrap;">
+                        <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceTransition" value="none" checked style="accent-color: #8fbc8f;">
+                            <span>none</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceTransition" value="jcut" style="accent-color: #8fbc8f;">
+                            <span>j-cut</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceTransition" value="lcut" style="accent-color: #8fbc8f;">
+                            <span>l-cut</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer;">
+                            <input type="radio" name="radSilenceTransition" value="overlap" style="accent-color: #8fbc8f;">
+                            <span>overlap</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <button id="btnSilencesExecute" class="btn-primary" style="background: linear-gradient(135deg, #8fbc8f, #6b9678); font-weight: bold; padding: 13px 16px; width: 100%; font-size: 13px; box-shadow: 0 4px 14px rgba(143, 188, 143, 0.35);">
+                    cut and delete silences
+                </button>
+            </section>
+        </div>
+
+        <!-- Log Area -->
+        <section class="console-card" style="margin-top: 24px;">
+            <div class="section-title"><span>autocut silences activity log</span></div>
+            <div class="console-box" id="consoleLogSilences">ready.</div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         VIEW 6: AUTOPOV WORKSPACE
+         ============================================================ -->
+    <main id="viewPOV" class="app-view">
+        <div class="view-top-bar">
+            <div class="view-heading">
+                <h2>autopov</h2>
+                <p>auto-switch the visible pov to whoever is speaking</p>
+            </div>
+            <button class="btn-small btn-return-hub">← back to hub</button>
+        </div>
+
+        <!-- Stepper Navigation -->
+        <div class="stepper-nav" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
+            <div id="povStepPillSections" class="step-badge active" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 11px; cursor: pointer; background: #8fbc8f; color: #18181b;">
+                <span id="povStepIcon1" style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: rgba(0,0,0,0.25); font-size: 10px; font-weight: bold;">1</span>
+                <span>sections</span>
+            </div>
+            <div style="width: 30px; height: 1.5px; background: #27272a;"></div>
+            <div id="povStepPillSpeakers" class="step-badge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 11px; cursor: pointer; background: #27272a; color: #a1a1aa;">
+                <span id="povStepIcon2" style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: rgba(255,255,255,0.1); font-size: 10px; font-weight: bold;">2</span>
+                <span>speakers &amp; povs</span>
+            </div>
+        </div>
+
+        <!-- ================= STEP 1: SECTIONS ================= -->
+        <div id="povStep1">
+            <section class="section">
+                <div class="section-title"><span>define sections</span></div>
+                <p class="help">pick the scope and which audio tracks the speakers talk on</p>
+
+                <div style="display: flex; gap: 8px; margin: 12px 0 16px;">
+                    <button id="btnPOVScopeEntire" class="scope-btn active" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid #8fbc8f; background: rgba(143, 188, 143, 0.12); color: #f4f4f5; font-size: 12px; font-weight: bold; cursor: pointer;">entire timeline</button>
+                    <button id="btnPOVScopeInOut" class="scope-btn" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid #27272a; background: #18181b; color: #a1a1aa; font-size: 12px; cursor: pointer;">in/out points</button>
+                </div>
+
+                <div style="background: #18181b; border: 1px solid #27272a; border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-size: 11px; color: #a1a1aa; font-weight: bold;">speaker audio tracks</span>
+                        <span id="lblPOVDuration" style="font-size: 11px; color: #71717a; font-family: monospace;">00:00:00 - 00:00:00</span>
+                    </div>
+                    <div id="povTrackList" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="color: #71717a; font-size: 11px; text-align: center; padding: 10px;">inspecting active sequence tracks...</div>
+                    </div>
+                </div>
+
+                <button id="btnPOVValidate" class="btn-primary" style="background: linear-gradient(135deg, #8fbc8f, #6b9678); font-weight: bold; padding: 13px 16px; width: 100%; font-size: 13px; box-shadow: 0 4px 14px rgba(143, 188, 143, 0.35); color: #18181b;">
+                    continue to speakers &amp; povs
+                </button>
+            </section>
+        </div>
+
+        <!-- ================= STEP 2: SPEAKERS + POVS ================= -->
+        <div id="povStep2" style="display: none;">
+            <section class="section">
+                <div class="section-title"><span>speakers</span></div>
+                <p class="help">one speaker per audio track. higher priority wins when two people talk at once.</p>
+                <div id="povSpeakersList" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;"></div>
+                <button id="btnPOVAddSpeaker" class="btn-secondary" style="width: 100%; border-style: dashed;">+ add speaker</button>
+            </section>
+
+            <section class="section">
+                <div class="section-title"><span>povs</span></div>
+                <p class="help">each pov points to a video track and the speaker(s) it should show.</p>
+                <div id="povPovsList" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;"></div>
+                <button id="btnPOVAddPov" class="btn-secondary" style="width: 100%; border-style: dashed;">+ add pov</button>
+            </section>
+
+            <section class="section">
+                <div class="section-title"><span>handling unused clips</span></div>
+                <div style="display: flex; flex-direction: column; gap: 6px; background: #18181b; border: 1px solid #27272a; border-radius: 8px; padding: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+                        <input type="radio" name="radPOVUnused" value="disable" checked style="accent-color: #8fbc8f;">
+                        <span>disable unused clips (keeps them recoverable)</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+                        <input type="radio" name="radPOVUnused" value="remove" style="accent-color: #8fbc8f;">
+                        <span>delete unused clips permanently</span>
+                    </label>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+                    <div>
+                        <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">speech threshold (db)</label>
+                        <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                            <input type="number" id="numPOVThreshold" value="-38" min="-70" max="-10" step="1" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">minimum shot length (ms)</label>
+                        <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                            <input type="number" id="numPOVMinShotMs" value="500" min="100" max="5000" step="100" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btnPOVExecute" class="btn-primary" style="background: linear-gradient(135deg, #8fbc8f, #6b9678); font-weight: bold; padding: 13px 16px; width: 100%; font-size: 13px; box-shadow: 0 4px 14px rgba(143, 188, 143, 0.35); color: #18181b; margin-top: 14px;">
+                    start pov editing
+                </button>
+            </section>
+        </div>
+
+        <section class="console-card" style="margin-top: 24px;">
+            <div class="section-title"><span>autopov activity log</span></div>
+            <div class="console-box" id="consoleLogPOV">ready.</div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         VIEW 7: AUTOSEPARATE WORKSPACE
+         ============================================================ -->
+    <main id="viewSeparate" class="app-view">
+        <div class="view-top-bar">
+            <div class="view-heading">
+                <h2>autoSeparate</h2>
+                <p>AI speaker diarization — detect who talks when and split them onto separate tracks</p>
+            </div>
+            <button class="btn-small btn-return-hub">← back to hub</button>
+        </div>
+
+        <!-- Stepper -->
+        <div class="stepper-nav" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
+            <div id="sepStepPillSections" class="step-badge active" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 11px; cursor: pointer; background: #8fbc8f; color: #18181b;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: rgba(0,0,0,0.25); font-size: 10px; font-weight: bold;">1</span>
+                <span>source</span>
+            </div>
+            <div style="width: 30px; height: 1.5px; background: #27272a;"></div>
+            <div id="sepStepPilSeparate" class="step-badge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 11px; cursor: pointer; background: #27272a; color: #a1a1aa;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: rgba(255,255,255,0.1); font-size: 10px; font-weight: bold;">2</span>
+                <span>separate</span>
+            </div>
+        </div>
+
+        <!-- ================= STEP 1: SOURCE ================= -->
+        <div id="sepStep1">
+            <section class="section">
+                <div class="section-title"><span>define source</span></div>
+                <p class="help">pick which audio track contains the mixed speakers and how many voices to separate into</p>
+
+                <div style="background: #18181b; border: 1px solid #27272a; border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="font-size: 11px; color: #a1a1aa; font-weight: bold;">source audio track</span>
+                        <span id="lblSepDuration" style="font-size: 11px; color: #71717a; font-family: monospace;">00:00:00 - 00:00:00</span>
+                    </div>
+                    <div id="sepTrackList" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="color: #71717a; font-size: 11px; text-align: center; padding: 10px;">inspecting active sequence tracks...</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <label style="font-size: 11px; color: #a1a1aa; display: block; margin-bottom: 4px;">number of speakers to detect</label>
+                    <div style="display: flex; align-items: center; gap: 4px; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 6px 10px;">
+                        <input type="number" id="numSepSpeakers" value="3" min="1" max="16" step="1" class="num-input" style="width: 60px; background: transparent; border: none; color: #f4f4f5; font-size: 12px;">
+                        <span style="font-size: 11px; color: #71717a;">voices</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 8px; margin: 12px 0 16px;">
+                    <button id="btnSepScopeEntire" class="scope-btn active" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid #8fbc8f; background: rgba(143, 188, 143, 0.12); color: #f4f4f5; font-size: 12px; font-weight: bold; cursor: pointer;">entire timeline</button>
+                    <button id="btnSepScopeInOut" class="scope-btn" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid #27272a; background: #18181b; color: #a1a1aa; font-size: 12px; cursor: pointer;">in/out points</button>
+                </div>
+
+                <button id="btnSepAnalyze" class="btn-primary" style="background: linear-gradient(135deg, #8fbc8f, #6b9678); font-weight: bold; padding: 13px 16px; width: 100%; font-size: 13px; box-shadow: 0 4px 14px rgba(143, 188, 143, 0.35); color: #18181b;">
+                    analyze &amp; separate speakers
+                </button>
+            </section>
+        </div>
+
+        <!-- ================= STEP 2: RESULTS ================= -->
+        <div id="sepStep2" style="display: none;">
+            <section class="section">
+                <div class="section-title"><span>detected speakers</span></div>
+                <div id="sepSpeakerSummary" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;"></div>
+
+                <div style="margin-bottom: 18px;">
+                    <label style="font-size: 11px; color: #a1a1aa; font-weight: bold; display: block; margin-bottom: 6px;">speech threshold (db)</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="range" id="rngSepThreshold" min="-60" max="-10" value="-38" step="1" style="flex: 1; accent-color: #8fbc8f; cursor: pointer;">
+                        <span id="lblSepThreshold" style="font-size: 12px; font-weight: bold; color: #8fbc8f; font-family: monospace; min-width: 50px;">-38db</span>
+                    </div>
+                </div>
+
+                <button id="btnSepReAnalyze" class="btn-secondary" style="width: 100%; margin-bottom: 8px;">re-analyze with new threshold</button>
+                <div style="display: flex; align-items: center; gap: 8px; margin: 10px 0 14px;">
+                    <input type="checkbox" id="chkSepMuteSource" checked style="accent-color: #8fbc8f; cursor: pointer;">
+                    <label for="chkSepMuteSource" style="font-size: 11px; color: #a1a1aa; cursor: pointer; user-select: none;">mute main audio track after separation (prevents echo)</label>
+                </div>
+                <button id="btnSepExecute" class="btn-primary" style="background: linear-gradient(135deg, #8fbc8f, #6b9678); font-weight: bold; padding: 13px 16px; width: 100%; font-size: 13px; box-shadow: 0 4px 14px rgba(143, 188, 143, 0.35); color: #18181b;">
+                    separate onto individual tracks
+                </button>
+                <button id="btnSepBack" class="btn-secondary" style="width: 100%; margin-top: 8px;">← back to source</button>
+            </section>
+        </div>
+
+        <section class="console-card" style="margin-top: 24px;">
+            <div class="section-title"><span>autoSeparate activity log</span></div>
+            <div class="console-box" id="consoleLogSep">ready.</div>
+        </section>
+    </main>
+
+    <!-- Global Console Drawer -->
+    <section class="console-card hidden" id="debugPanel" style="margin: 16px;">
+        <div class="section-title"><span>Deep Console Log</span></div>
+        <div class="console-box" id="consoleDeep"></div>
+    </section>
+
+    <!-- ============================================================
+         SHARED PROCESS OVERLAY (all features)
+         Blurred backdrop, opencut brand, Consolas, vertical stepper.
+         ============================================================ -->
+    <div id="processOverlay" class="process-overlay hidden">
+        <div class="process-card">
+            <img id="processLogo" class="process-logo" src="assets/opencut.png" alt="" onerror="this.style.display='none'">
+            <div id="processTitle" class="process-title">opencut</div>
+            <div id="processSub" class="process-sub">working on your timeline&hellip;</div>
+            <div id="processSteps" class="process-steps"></div>
+            <button id="processCancel" class="process-cancel">cancel process</button>
+            <div class="process-tip">please refrain from using premiere while this runs to prevent potential issues.</div>
+        </div>
+    </div>
+
+    <script src="js/CSInterface.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
