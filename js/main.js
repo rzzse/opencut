@@ -3286,6 +3286,9 @@ document.addEventListener("DOMContentLoaded", function() {
             var savedKey = localStorage.getItem("elevenlabs_api_key");
             if (savedKey) apiKeyEl.value = savedKey;
         } catch(e) {}
+        apiKeyEl.addEventListener("input", function() {
+            try { localStorage.setItem("elevenlabs_api_key", apiKeyEl.value.trim()); } catch(e) {}
+        });
         apiKeyEl.addEventListener("change", function() {
             try { localStorage.setItem("elevenlabs_api_key", apiKeyEl.value.trim()); } catch(e) {}
         });
